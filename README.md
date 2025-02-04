@@ -11,9 +11,9 @@
 - На вход подаётся случайный **кроп фото** и название **искомой компании**
 - Задача - вывести вероятность, что на кропе логотип искомой компании
 
-Далее можно предложить 2 подхода:
+Далее можно предложить 2 основных подхода:
 
-1. **SIFT**
+1. **SIFT (Scale-Invariant Feature Transform)**
 
     Из названия компании, мы можем извлечь все доступные образцы и сравнить их с кропом
 
@@ -27,7 +27,7 @@
     - Хуже работает в случае большого количества логотипов на одном кропе
     - O(N * M) - сложность, что довольно тяжело, если применять на каждый кадр видео
 
-2. **YOLO**
+2. **YOLO (You Only Look Ones)**
 
     Дообучить модель семейства yolo для уже задачи детекции логотипа, разделяя датасет на классы, соответсвующие компаниям
 
@@ -57,22 +57,33 @@
 
 [![Dataset on huggingface](https://huggingface.co/datasets/huggingface/badges/resolve/main/dataset-on-hf-md.svg)](https://huggingface.co/datasets/PodYapolsky/LogoDet-3K)
 
-## Решения
+## Заключение
 
-#### SIFT (Scale-Invariant Feature Transform)
+#### SIFT
 
-...
+Подход показал, что способен нормально различать паттерны с разного рода искажениями и трансформациями над изображениями.
 
-#### YOLO (You Only Look Ones)
+#### YOLO
 
-...
+[ЕСЛИ ЧИТАЕТЕ ЭТО, ЗНАЧИТ ЭКСПЕРИМЕНТ ПОКА НЕ УДАЛОСЬ ПРОВЕСТИ]
 
-## Ссылки
+Подход должен сработать, точность может быть меньше, зато скорость будет выше и будет возможность детектировать положение логотипа на фото (или видео).
 
-__Данные__
-- [LogoDet-3K: A Large-Scale Image Dataset for Logo Detection](https://paperswithcode.com/paper/logodet-3k-a-large-scale-image-dataset-for)
-
-__YOLO-based__
 - [Logo Detection with YOLO](https://github.com/tadowney/logo_detection)
 - [Deep Learning for Logo Detection](https://arxiv.org/pdf/2210.04399)
 - [Trinity-Yolo: High-precision logo detection in the real world](https://www.researchgate.net/publication/370096932_Trinity-Yolo_High-precision_logo_detection_in_the_real_world)
+
+
+#### ORB
+
+[ЕСЛИ ЧИТАЕТЕ ЭТО, ЗНАЧИТ ЭКСПЕРИМЕНТ ПОКА НЕ УДАЛОСЬ ПРОВЕСТИ]
+
+Более совершенный дескриптор точек.
+
+#### Bag of vision words
+
+[ЕСЛИ ЧИТАЕТЕ ЭТО, ЗНАЧИТ ЭКСПЕРИМЕНТ ПОКА НЕ УДАЛОСЬ ПРОВЕСТИ]
+
+Менее точный подход, который может является одним из бейзлайнов
+
+Данные о позиции мы точно потеряем, но это метод прост в реализации.
